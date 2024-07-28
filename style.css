@@ -1,59 +1,70 @@
-* {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    box-sizing: border-box;
-}
+/* style.css */
 
 body {
-    background: #e3edf7;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f7f7f7;
 }
 
 .accordion {
-    margin: 60px auto;
-    width: 600px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 600px;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .accordion li {
-    list-style: none;
-    width: 100%;
-    margin: 20px;
-    padding: 10px;
-    border-radius: 8px;
-    background: #e3edf7;
-    box-shadow: 6px 6px 10px -1px rgba(0, 0, 0 , 0.15), -6px -6px 10px -1px rgba(255, 255 ,255 , 0.7);
-
-}
-.accordion li label {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    font-size: 18px;
-    font-weight: 500;
-    cursor: pointer;
+    border-top: 1px solid #ddd;
 }
 
-.accordion li label::before {
-    content: "+";
-    margin-right: 10px;
-    font-size: 24px;
-    font-weight: 600;
+.accordion li:first-child {
+    border-top: none;
 }
 
-.accordion li input[type="radio"]{
+.accordion input[type="radio"] {
     display: none;
 }
+
+.accordion label {
+    display: block;
+    padding: 15px 20px;
+    cursor: pointer;
+    background-color: #ffffff;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.accordion label:hover {
+    background-color: #f0f0f0;
+}
+
+.accordion input[type="radio"]:checked + label {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
 .accordion .content {
-    color: #555;
-    padding: 0 10px;
-    line-height: 26px;
     max-height: 0;
     overflow: hidden;
+    transition: max-height 0.3s ease;
+    background-color: #ffffff;
+    padding: 0 20px;
 }
-.accordion li input[type="radio"]:checked + label + .content {
-    max-height: 400px;
-    padding: 10px 10px 20px;
+
+.accordion input[type="radio"]:checked ~ .content {
+    max-height: 200px; /* Adjust based on content height */
+    padding: 20px;
 }
-.accordion li input[type="radio"]:checked + label::before{
-    content: "-";
+
+.accordion .content p {
+    margin: 0;
+    padding: 0;
 }
