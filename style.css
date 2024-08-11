@@ -1,73 +1,38 @@
-/* style.css */
-* {
-    padding: 0;
-    margin: 0;
-}
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f7f7f7;
-}
-
 .accordion {
-    list-style: none;
-    padding: 0;
-    margin: 0;
     max-width: 600px;
-    width: 100%;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
 
-.accordion li {
-    border-top: 1px solid #ddd;
+.accordion-item {
+    border-bottom: 1px solid #ddd;
 }
 
-.accordion li:first-child {
-    border-top: none;
-}
-
-.accordion input[type="radio"] {
-    display: none;
-}
-
-.accordion label {
-    display: block;
-    padding: 15px 20px;
+.accordion-header {
+    background-color: #f1f1f1;
+    padding: 15px;
     cursor: pointer;
-    background-color: #ffffff;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
 }
 
-.accordion label:hover {
-    background-color: #f0f0f0;
+.accordion-header h3 {
+    margin: 0;
+    font-size: 18px;
 }
 
-.accordion input[type="radio"]:checked + label {
-    background-color: #007bff;
-    color: #ffffff;
-}
-
-.accordion .content {
+.accordion-content {
     max-height: 0;
     overflow: hidden;
+    padding: 0 15px;
+    background-color: #fff;
     transition: max-height 0.3s ease;
-    background-color: #ffffff;
-    padding: 0 20px;
 }
 
-.accordion input[type="radio"]:checked ~ .content {
-    max-height: 200px; /* Adjust based on content height */
-    padding: 20px;
+.accordion-content p {
+    margin: 10px 0;
 }
 
-.accordion .content p {
-    margin: 0;
-    padding: 0;
+.accordion-item.active .accordion-content {
+    max-height: 100px; /* Adjust this based on your content */
+    padding: 15px;
 }
